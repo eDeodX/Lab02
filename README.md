@@ -1,2 +1,0 @@
-# Lab02
-OG BUDA
