@@ -21,13 +21,15 @@ git commit -m "added README.md" (коммитим)
  touch hello_world.cpp
 
 <pre>
-    \#include \<iostream\>
+	```cpp
+    #include <iostream>
 
 	using namespace std;
 
 	int main() {
 		cout << "Hello, World!" << endl;
 	}
+	```
 </pre>
 
 ## 4. Добавьте этот файл в локальную копию репозитория:
@@ -47,8 +49,9 @@ git commit -m "add hello_world.cpp"
 ## 6. Изменить исходный код так, чтобы в программе через стандартный поток ввода запрашивалось имя пользователя. А в стандартный поток вывода печаталось сообщения Hello world from @name, где @name имя пользователя:
 
 <pre> 
-	\#include \<iostream\>
-	#include \<string\>
+	```cpp
+	#include <iostream>
+	#include <string>
 
 	using namespace std;
 
@@ -59,6 +62,7 @@ git commit -m "add hello_world.cpp"
 		cout << "Hello world from " << name MM endl;
 		return 0;
 	}
+	```
 </pre>
 
 ## 7. Закоммитьте новую версию программы. Почему не надо добавлять файл повторное git add?
