@@ -284,3 +284,31 @@ git branch --delete patch1
 root@debian:~/eDeodX/workspace/tasks/lab02# git branch
 * <font color="#00AA00">main</font>
 </pre>
+
+# Part III
+
+## 1. Создайте новую локальную ветку patch2:
+
+git branch patch2
+
+## 2. Измените *code style* с помощью утилиты **clang-format**. Например, используя опцию -style=Mozilla:
+
+clang-format -style=Mozilla -i hello_world.cpp
+
+```cpp
+#include <iostream> // подключаем заголовочные файлы
+#include <string>
+
+int
+main()
+{
+  std::string name; // создаем переменную имени
+  std::cout << "Enter your name: ";
+  std::getline(
+    std::cin,
+    name); // используем getline, т.к обычный cin считывает только до пробела
+  std::cout << "Hello world from " << name
+            << std::endl; // выводим результат в консоль
+  return 0;
+}
+```
