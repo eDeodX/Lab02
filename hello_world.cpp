@@ -1,10 +1,10 @@
-#include <iostream> // подключаем заголовочные файлы
+#include <iostream> // connect head files
 #include <string>
 
 int main() {
-	std::string name; // создаем переменную имени
+	std::string name; // create new field
 	std::cout << "Enter your name: ";
-	std::getline(cin, name); // используем geline, т.к обычный cin считывает только до пробела
-	std::cout << "Hello world from " << name << std::endl; // выводим результат в консоль
+	std::getline(cin, name); // use getline, because std::cin read only for space
+	std::cout << "Hello world from " << name << std::endl; // print result
 	return 0;
 }
