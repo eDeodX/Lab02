@@ -283,9 +283,12 @@ git branch --delete patch1
 Ветка patch1 удалена (была 9b04e99).
 root@debian:~/eDeodX/workspace/tasks/lab02# git branch
 * <font color="#00AA00">main</font>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 </pre>
 =======
+=======
+>>>>>>> refs/remotes/origin/main
 </pre>
 
 # Part III
@@ -314,6 +317,7 @@ main()
             << std::endl; // выводим результат в консоль
   return 0;
 }
+<<<<<<< HEAD
 ```
 
 ## 3. commit, push, создайте pull request patch2 -> main:
@@ -451,4 +455,3 @@ To https://github.com/eDeodX/Lab02.git
 ``` 
 #3 by eDeodX was merged now
 ```
->>>>>>> Stashed changes
