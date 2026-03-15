@@ -21,7 +21,7 @@ git commit -m "added README.md" (коммитим)
  touch hello_world.cpp
 
 <pre>
-    #include <iostream>
+    \#include \<iostream\>
 
 	using namespace std;
 
@@ -47,8 +47,8 @@ git commit -m "add hello_world.cpp"
 ## 6. Изменить исходный код так, чтобы в программе через стандартный поток ввода запрашивалось имя пользователя. А в стандартный поток вывода печаталось сообщения Hello world from @name, где @name имя пользователя:
 
 <pre> 
-	#include <iostream>
-	#include <string>
+	\#include \<iostream\>
+	#include \<string\>
 
 	using namespace std;
 
