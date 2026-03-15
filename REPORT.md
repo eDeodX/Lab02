@@ -177,3 +177,110 @@ root@debian:~/eDeodX/workspace/tasks/lab02# git branch -r
   <font color="#AA0000">origin/main</font>
   <font color="#AA0000">origin/patch1</font>
 </pre>
+
+## 5. Создайте pull-request patch1 -> main:
+
+В репо будет видно, что pull-request (pull new version hello_world.cpp) создавался (скорее всего уже в закрытых, т.к patch1 нужно будет удалить)
+
+## 6. В локальной копии в ветке patch1 добавьте в исходный код комментарии
+
+```cpp
+#include <iostream> // подключаем заголовочные файлы
+#include <string>
+
+int main() {
+	std::string name; // создаем переменную имени
+	std::cout << "Enter your name: ";
+	std::getline(cin, name); // используем geline, т.к обычный cin считывает только до пробела
+	std::cout << "Hello world from " << name << std::endl; // выводим результат в консоль
+	return 0;
+}
+```
+
+## 7. commit, push:
+
+<pre>
+root@debian:~/eDeodX/workspace/tasks/lab02# git commit -a -m &quot;add comments in hello_world.cpp&quot;
+[patch1 9b04e99] add comments in hello_world.cpp
+ 2 files changed, 74 insertions(+), 8 deletions(-)
+root@debian:~/eDeodX/workspace/tasks/lab02# git push -u origin patch1
+Перечисление объектов: 7, готово.
+Подсчет объектов: 100% (7/7), готово.
+При сжатии изменений используется до 2 потоков
+Сжатие объектов: 100% (4/4), готово.
+Запись объектов: 100% (4/4), 1.46 КиБ | 1.46 МиБ/с, готово.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/eDeodX/Lab02.git
+   347b807..9b04e99  patch1 -&gt; patch1
+branch &apos;patch1&apos; set up to track &apos;origin/patch1&apos;.
+</pre>
+
+## 8. Проверьте, что новые изменения есть в созданном на шаге 5 pull-request:
+
+Действительно есть :)
+
+## 9. В удалённый репозитории выполните слияние PR patch1 -> main и удалите ветку patch1, в удаленном репозитории:
+
+В pull request нажмем merge pull request
+После подтвердим слияние confirm merge
+Затем delete branch (кнопка появится после слияния веток)
+
+## 10. Локальный pull:
+
+<pre>root@debian:~/eDeodX/workspace/tasks/lab02# git checkout main
+Переключились на ветку «main»
+Эта ветка соответствует «origin/main».
+root@debian:~/eDeodX/workspace/tasks/lab02# git branch
+* <font color="#00AA00">main</font>
+  patch1
+root@debian:~/eDeodX/workspace/tasks/lab02# git pull
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Распаковка объектов: 100% (1/1), 900 байтов | 900.00 КиБ/с, готово.
+Из https://github.com/eDeodX/Lab02
+   432c78a..423f70a  main       -&gt; origin/main
+Обновление 432c78a..423f70a
+Fast-forward
+ REPORT.md       | 74 <font color="#00AA00">+++++++++++++++++++++++++++++++++++++++++++++++++++++</font><font color="#AA0000">----</font>
+ hello_world.cpp | 12 <font color="#00AA00">++++</font><font color="#AA0000">------</font>
+ 2 files changed, 75 insertions(+), 11 deletions(-)
+</pre>
+
+## 11. С помощью команды git log просмотрите историю в локальной версии ветки main:
+
+git log
+
+<pre><font color="#AA5500">commit 423f70ab4b79c4a0225322b25ed6ccf73d79d35e (</font><font color="#55FFFF"><b>HEAD</b></font><font color="#AA5500"> -&gt; </font><font color="#55FF55"><b>main</b></font><font color="#AA5500">, </font><font color="#FF5555"><b>origin/main</b></font><font color="#AA5500">)</font>
+Merge: 432c78a 9b04e99
+Author: eDeodX &lt;hanromik124@gmail.com&gt;
+Date:   Sun Mar 15 19:45:42 2026 +0300
+
+    Merge pull request #1 from eDeodX/patch1
+    
+    Pull new version hello_world.cpp
+
+<font color="#AA5500">commit 9b04e99aea397f6b04b5c3fc3c92a34e2d3da3c7 (</font><font color="#FF5555"><b>origin/patch1</b></font><font color="#AA5500">, </font><font color="#55FF55"><b>patch1</b></font><font color="#AA5500">)</font>
+Author: eDeodX &lt;hanromik124@gmail.com&gt;
+Date:   Sun Mar 15 19:40:40 2026 +0300
+
+    add comments in hello_world.cpp
+
+<font color="#AA5500">commit 347b8072b390a66536db6780a814e76f4d9d7c52</font>
+Author: eDeodX &lt;hanromik124@gmail.com&gt;
+Date:   Sun Mar 15 19:23:40 2026 +0300
+
+    improved hello_world.cpp (delete using namespace std)
+
+</pre>
+
+## 12. Удалите локальную ветку patch1:
+
+git branch --delete patch1
+
+<pre>root@debian:~/eDeodX/workspace/tasks/lab02# git branch --delete patch1
+Ветка patch1 удалена (была 9b04e99).
+root@debian:~/eDeodX/workspace/tasks/lab02# git branch
+* <font color="#00AA00">main</font>
+</pre>
